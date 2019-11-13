@@ -1,0 +1,39 @@
+﻿@using Eventures.Web.ViewModels
+
+@model List<EventViewModel>
+
+@{
+    ViewData["Title"] = "All Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center"> @ViewData["Title"]</h1>
+<hr class="hr-2 w-75 bg-eventures" />
+<div class="w-75 mx-auto">
+
+    <table class="table table-borderless">
+        <thead>
+            <tr class="border-bottom hr-2">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
+                <th scope="col">Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(int i=0; i< @Model.Count; i++)
+            {
+                var eventDetail = @Model[i];
+                <tr>
+                    <th scope="row">@(i+1)</th>
+                    <td>@eventDetail.Name</td>
+                    <td>@eventDetail.Start</td>
+                    <td>@eventDetail.End</td>
+                    <td>@eventDetail.Place</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr class="hr-2 w-75 bg-eventures" />

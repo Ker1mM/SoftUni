@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/mdb.min.css" rel="stylesheet">
+    <link href="~/css/addons/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <script type="text/javascript">(function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })();</script>
+    <script src="https://kit.fontawesome.com/f9352a3873.js"></script>
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <div id="body" class="container">
+        <div>
+            <header>
+
+                <nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-dark bg-rider">
+
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar top-bar"></span>
+                        <span class="icon-bar middle-bar"></span>
+                        <span class="icon-bar bottom-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" id="brandLogo" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img class=" img-logo" src="~/img/logo.png" alt="Home">
+                    </a>
+
+                    <div class="navbar-nav order-lg-last" id="logButton">
+                        <div class="nav-item active">
+                            <a class="text-decoration-none text-white" asp-controller="player" asp-action="profile">
+                                <i class="nav-link fas fa-user fa-2x">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <span class="ml-1 hide-l-12">
+                                            @User.Identity.Name
+                                        </span>
+                                    }
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </nav>
+            </header>
+            <div id="main" class="container">
+                <partial name="_CookieConsentPartial" />
+                @RenderBody()
+            </div>
+        </div>
+        <footer id="footer" class="bg-rider">
+            <div class="container-fluid pt-2 text-md-left">
+                <div class="row">
+                    <div class="col-md-6 my-2">
+                        <h3 class="text-yellow">Rider</h3>
+                        <span class="text-light">Rider is an open-source project, made for entertainment and education.</span>
+                    </div>
+                    <div class="col-md-3 my-2">
+                        <h3 class="text-yellow">Useful</h3>
+                        <ul class="no-bullets text-left text-light">
+                            <li><a class="text-info" href="/home/privacy">Privacy</a></li>
+                            <li><a class="text-info" href="/home/how">How to play</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 my-2">
+                        <h3 class="text-yellow">About</h3>
+                        <a href="https://github.com/Ker1mM/Rider" target="_blank"><i title="Source Code" class="tex fas fa-code fa-2x"></i></a>
+                        <a href="https://github.com/Ker1mM" target="_blank"><i title="Creator GiT" class="fab fa-github fa-2x"></i></a>
+                        <a href="https://softuni.bg/users/profile/certificates?username=Ker1m" target="_blank"><i title="SoftUni Certificates" class="fas fa-certificate fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto text-center pb-1">
+                <hr class="footer" />
+                <span class=" text-dark">This website was created for educational purposes only! &reg;</span>
+            </div>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/addons/datatables.min.js"></script>
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/js/mdb.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

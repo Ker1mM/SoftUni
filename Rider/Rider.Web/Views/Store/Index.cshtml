@@ -1,0 +1,107 @@
+﻿@model StorePartsViewModel
+
+@{
+    ViewData["Title"] = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container background-body">
+    <div class="pt-2">
+        <h1>Store</h1>
+    </div>
+    <hr class="mt-0"/>
+    <h3 class="text-danger">@TempData["Error"]</h3>
+    <div class="table-responsive-lg">
+        <table id="storeTable" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Make
+                    </th>
+                    <th class="th-sm">
+                        Model
+                    </th>
+                    <th class="th-sm">
+                        Type
+                    </th>
+                    <th class="th-sm">
+                        SuspensionRating
+                    </th>
+                    <th class="th-sm">
+                        SpeedRating
+                    </th>
+                    <th class="th-sm">
+                        Weight
+                    </th>
+                    <th class="th-sm">
+                        Seller
+                    </th>
+                    <th class="th-sm">
+                        Price
+                    </th>
+                    <th class="th-sm text-center">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ware in Model.Parts)
+                {
+                    <tr>
+                        <td>@ware.Part.Make</td>
+                        <td>@ware.Part.Model</td>
+                        <td>@ware.Part.Type</td>
+                        <td>@ware.Part.SuspensionRating</td>
+                        <td>@ware.Part.SpeedRating</td>
+                        <td>@ware.Part.Weight</td>
+                        <td>@ware.SellerName</td>
+                        <td>@ware.Price</td>
+                        <td class="text-center">
+                            @if (ware.SellerName != this.User.Identity.Name)
+                            {
+                                <a title="Buy" class="btn btn-success mr-auto btn-sm" asp-controller="Store" asp-action="Buy" asp-route-w="@ware.Id"><i class="fas fa-shopping-cart"></i></a>
+                            }
+
+                            @if (this.User.IsInRole("Admin") || this.User.IsInRole("Moderator") || ware.SellerName == this.User.Identity.Name)
+                            {
+                                <a title="Remove" class="btn btn-outline-danger mr-auto btn-sm" asp-controller="Store" asp-action="Remove" asp-route-w="@ware.Id"><i class="fas fa-times"></i></a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        SuspensionRating
+                    </th>
+                    <th>
+                        SpeedRating
+                    </th>
+                    <th>
+                        Weight
+                    </th>
+                    <th>
+                        Seller
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th class="text-center">
+                        Actions
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+@inject SignInManager<Player> SignInManager
+@inject UserManager<Player> UserManager
+
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Home" asp-action="Stats">Game Stats</a>
+    </li>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <partial name="/Areas/Admin/Views/Shared/_AdminLayoutPartial.cshtml" />
+            <partial name="/Areas/Cved/Views/Shared/_CvedLayoutPartial.cshtml" />
+        }
+        else if (User.IsInRole("Moderator"))
+        {
+            <partial name="/Areas/Cved/Views/Shared/_CvedLayoutPartial.cshtml" />
+        }
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Bikes" asp-action="Index">My Bikes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Store" asp-action="Index">Store</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Player" asp-action="Inventory">Inventory</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Race" asp-action="Index">Race Center</a>
+        </li>
+    }
+
+
+</ul>

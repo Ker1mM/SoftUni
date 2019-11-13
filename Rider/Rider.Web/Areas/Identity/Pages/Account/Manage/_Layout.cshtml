@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container background-body">
+    <h2 class="text-center pt-3">Account settings</h2>
+    <hr />
+    <partial name="_ManageNav" />
+    <hr />
+    <div class="container pb-3">
+            @RenderBody()
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

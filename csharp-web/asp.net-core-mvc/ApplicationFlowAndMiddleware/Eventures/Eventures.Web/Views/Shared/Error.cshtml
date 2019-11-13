@@ -1,0 +1,34 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="text-center error w-45 mx-auto ">
+    <h1 class="text-danger py-3">ERROR</h1>
+    <div class="text-left">
+
+        @if (Model.Code != null)
+        {
+            <div class="container-fluid text-center">
+                <h5>
+                    Unexpected error with code <strong class="text-danger">@Model.Code</strong> has occured.
+                </h5>
+                <span>For more information click <a href="http://www.google.com/search?q=error+@Model.Code">here</a>.</span>
+            </div>
+        }
+        else
+        {
+            <div class="container-fluid w-75">
+                <h6 class="text-muted">An input error has occured while processing the request.</h6>
+                <h6 class="text-muted">Please check the following lines and submit your input again.</h6>
+                <div class="w-75 mx-auto py-3">
+                    <span class="text-danger" style="white-space: pre-wrap">@Model.Message</span>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="text-info pt-3">
+        <span>If you think this error is incorrect, use <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">this link</a> to submit a complain.</span>
+    </div>
+</div>
+

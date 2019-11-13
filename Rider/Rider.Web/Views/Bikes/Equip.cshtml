@@ -1,0 +1,93 @@
+﻿@model EquipPartModel
+
+@{
+    ViewData["Title"] = string.Format("Equip bike - {0}", Model.Bike.Nickname);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container background-body">
+    <div class="container text-center">
+        <h1>Pimp your ride - @Model.Bike.Nickname</h1>
+        <hr class="mt-0" />
+        <h3 class="text-danger">@TempData["Error"]</h3>
+    </div>
+    <div class="container table-responsive-lg" id="equip-parts">
+        <h3 class="pt-2 pl-2">Equip new parts</h3>
+        <hr class="mt-0" />
+        <form method="post">
+            <table id="equipParts" class="table table-bordered table-sm table-hover" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm" scope="col">Make</th>
+                        <th class="th-sm" scope="col">Model</th>
+                        <th class="th-sm" scope="col">Type</th>
+                        <th class="th-sm" scope="col">Speed Rating</th>
+                        <th class="th-sm" scope="col">Suspension Rating</th>
+                        <th class="th-sm " scope="col">Weight</th>
+                        <th class="th-sm text-center"><i class="far fa-check-square"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var part in Model.AvailableParts)
+                    {
+                    <tr>
+                        <td>@part.Part.Make</td>
+                        <td>@part.Part.Model</td>
+                        <td>@part.Part.Type.ToString()</td>
+                        <td>@part.Part.SpeedRating</td>
+                        <td>@part.Part.SuspensionRating</td>
+                        <td>@part.Part.Weight</td>
+                        <td class="text-center">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="NewPlayerPartId" value="@part.PlayerPartId" type="checkbox" class="sev_check" />
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="hidden" asp-for="BikeId" name="BikeId" value="@Model.Bike.Id" />
+            <div class="text-center pb-2 pt-0">
+                <button type="submit" class="btn btn-primary btn-sm">Equip</button>
+            </div>
+        </form>
+    </div>
+    <hr />
+
+    <div>
+    </div>
+    <div class="container table-responsive-lg" id="equipped-parts">
+        <h3 class="pt-2 pl-2">Equipped parts</h3>
+        <hr class="mt-0" />
+        <table id="equippedParts" class="table table-bordered table-sm table-hover" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm" scope="col">Make</th>
+                    <th class="th-sm" scope="col">Model</th>
+                    <th class="th-sm" scope="col">Type</th>
+                    <th class="th-sm" scope="col">Speed Rating</th>
+                    <th class="th-sm" scope="col">Suspension Rating</th>
+                    <th class="th-sm " scope="col">Weight</th>
+                    <th class="th-sm text-center"><i class="far fa-trash-alt"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var part in Model.Parts)
+                {
+                <tr>
+                    <td>@part.Part.Make</td>
+                    <td>@part.Part.Model</td>
+                    <td>@part.Part.Type.ToString()</td>
+                    <td>@part.Part.SpeedRating</td>
+                    <td>@part.Part.SuspensionRating</td>
+                    <td>@part.Part.Weight</td>
+                    <td class="text-center"><a class="btn btn-sm btn-danger m-0" asp-controller="Bikes" asp-action="Remove" asp-route-b="@Model.Bike.Id" asp-route-p="@part.BikePartId"><i class="fas fa-redo-alt"></i></a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <hr>
+</div>

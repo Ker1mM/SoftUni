@@ -1,0 +1,36 @@
+﻿@model  StatsViewModel
+
+@{
+    ViewData["Title"] = "Stats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container table-responsive-lg">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th class="th-lg solid-bg" colspan="2"><h3>Game stats</h3></th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <th class="table-dark">Registered Players</th>
+                <td class="table-warning">@Model.PlayerCount</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Available Tracks</th>
+                <td class="table-warning">@Model.TrackCount</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Total Attempts</th>
+                <td class="table-warning">@Model.AttemptCount</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Available Parts</th>
+                <td class="table-warning">@Model.PartCount</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

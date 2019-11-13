@@ -1,0 +1,52 @@
+@using Microsoft.AspNetCore.Identity
+@using Eventures.Domain
+
+@inject SignInManager<EventuresUser> SignInManager
+@inject UserManager<EventuresUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark nav-link-black active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <div class="dropdown show">
+                <a class="nav-link nav-link-black active text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" asp-controller="Event" asp-action="All">All Events</a>
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <a class="dropdown-item" asp-controller="Event" asp-action="Create">Create Event</a>
+                    }
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark nav-link-black active" asp-area="Home" asp-page="/Index">Hello @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark nav-link-black active" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark nav-link-black active" href="/">Home</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link nav-link-black active" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-black active" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    </ul>
+}

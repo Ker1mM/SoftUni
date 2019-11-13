@@ -1,0 +1,53 @@
+﻿@model BikeAllViewModel
+@{
+    ViewData["Title"] = "My Bikes - All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container background-body">
+    <div class="row pt-2">
+        <div class="col">
+            <h2 class="ml-1">My Bikes</h2>
+        </div>
+        <div class="col text-sm-right">
+            <a class="btn btn-success btn-sm" asp-controller="Bikes" asp-action="Add">Add new</a>
+        </div>
+    </div>
+    <hr class="mt-1" />
+    <div class="table-responsive text-nowrap">
+        <h3 class="text-danger text-center">
+            @TempData["Error"]
+        </h3>
+        <table class="table table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th scope="row">Name</th>
+                    <th scope="row">Type</th>
+                    <th scope="row">Suspension Rating</th>
+                    <th scope="row">Speed Rating</th>
+                    <th scope="row">Weight</th>
+                    <th scope="row">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bike in Model.Bikes)
+                {
+                <tr>
+                    <td>@bike.Nickname</td>
+                    <td>@bike.Type</td>
+                    <td>@bike.SuspensionRating</td>
+                    <td>@bike.SpeedRating</td>
+                    <td>@bike.Weight</td>
+                    <td>
+                        <div class="d-flex justify-content-around">
+                            <a title="Equip" class="btn btn-info btn-sm mr-1" asp-controller="Bikes" asp-action="Equip" asp-route-b="@bike.Id"><i class="fas fa-plus"></i></a>
+                            <a title="Delete" class="btn btn-outline-danger btn-sm ml-1" asp-controller="Bikes" asp-action="Delete" asp-route-b="@bike.Id"><i class="far fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+@using Microsoft.AspNetCore.Identity
+@using PANDA.Domain
+@inject SignInManager<PandaUser> SignInManager
+@inject UserManager<PandaUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" href="/my-receipts">Receipts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" href="/pending">Pending</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" href="/shipped">Shipped</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" href="/delivered">Delivered</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" href="/package">Package</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-white active" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>

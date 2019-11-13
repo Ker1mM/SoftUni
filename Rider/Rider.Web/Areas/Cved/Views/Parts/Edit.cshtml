@@ -1,0 +1,86 @@
+﻿@model PartCreateModel
+
+@{
+    ViewData["Title"] = string.Format("Edit  - {0} {1}", Model.Make, Model.Model);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid background-body">
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <h1>Edit part</h1>
+        </div>
+        <hr class="mt-0" />
+        <form method="post">
+            <div class="row justify-content-md-around">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Make"></label>
+                        <input asp-for="Make" class="form-control" />
+                        <span asp-validation-for="Make" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Model"></label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-around">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Weight"></label>
+                        <input asp-for="Weight" class="form-control" />
+                        <span asp-validation-for="Weight" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Type"></label>
+                        <select class="browser-default custom-select" asp-for="Type" asp-items="Html.GetEnumSelectList<PartType>()">
+                            <option selected="" value="">Select</option>
+                        </select>
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-around">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="SpeedRating"></label>
+                        <input asp-for="SpeedRating" class="form-control" />
+                        <span asp-validation-for="SpeedRating" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="SuspensionRating"></label>
+                        <input asp-for="SuspensionRating" class="form-control" />
+                        <span asp-validation-for="SuspensionRating" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-around">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="BasePrice"></label>
+                        <input asp-for="BasePrice" class="form-control" />
+                        <span asp-validation-for="BasePrice" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

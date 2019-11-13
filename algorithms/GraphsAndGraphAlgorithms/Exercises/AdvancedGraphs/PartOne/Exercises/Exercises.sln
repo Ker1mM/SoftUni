@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CableNetwork", "CableNetwork\CableNetwork.csproj", "{9165D57E-D8A4-4AB1-8024-D905227D68B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModifiedKruskalAlgorithm", "ModifiedKruskalAlgorithm\ModifiedKruskalAlgorithm.csproj", "{E856D2FA-FB3A-4C40-A715-D649AD13F394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MostReliablePath", "MostReliablePath\MostReliablePath.csproj", "{0D8E26AC-6C31-4E58-8690-F2188510AF24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9165D57E-D8A4-4AB1-8024-D905227D68B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9165D57E-D8A4-4AB1-8024-D905227D68B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9165D57E-D8A4-4AB1-8024-D905227D68B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9165D57E-D8A4-4AB1-8024-D905227D68B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E856D2FA-FB3A-4C40-A715-D649AD13F394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E856D2FA-FB3A-4C40-A715-D649AD13F394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E856D2FA-FB3A-4C40-A715-D649AD13F394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E856D2FA-FB3A-4C40-A715-D649AD13F394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D8E26AC-6C31-4E58-8690-F2188510AF24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D8E26AC-6C31-4E58-8690-F2188510AF24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D8E26AC-6C31-4E58-8690-F2188510AF24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D8E26AC-6C31-4E58-8690-F2188510AF24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA424B56-8DC4-4C3E-8BCE-A51C261B4B58}
+	EndGlobalSection
+EndGlobal

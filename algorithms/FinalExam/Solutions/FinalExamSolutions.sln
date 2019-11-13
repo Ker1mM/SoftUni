@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticlesSelector", "ParticlesSelector\ParticlesSelector.csproj", "{FBA0CD6C-8A97-4EB9-B50B-B6A1D573F867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Molecules", "Molecules\Molecules.csproj", "{D538C702-0FFD-4295-B469-C7E83824D65E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClusterBorder", "..\ClusterBorder\ClusterBorder.csproj", "{3E98D639-09C5-4A64-9FD0-6246B8595699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalacticBeacons", "..\GalacticBeacons\GalacticBeacons.csproj", "{67C2809E-381C-4FB5-A7B0-5027733F4E81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBA0CD6C-8A97-4EB9-B50B-B6A1D573F867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA0CD6C-8A97-4EB9-B50B-B6A1D573F867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA0CD6C-8A97-4EB9-B50B-B6A1D573F867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA0CD6C-8A97-4EB9-B50B-B6A1D573F867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D538C702-0FFD-4295-B469-C7E83824D65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D538C702-0FFD-4295-B469-C7E83824D65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D538C702-0FFD-4295-B469-C7E83824D65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D538C702-0FFD-4295-B469-C7E83824D65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E98D639-09C5-4A64-9FD0-6246B8595699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E98D639-09C5-4A64-9FD0-6246B8595699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E98D639-09C5-4A64-9FD0-6246B8595699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E98D639-09C5-4A64-9FD0-6246B8595699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C2809E-381C-4FB5-A7B0-5027733F4E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C2809E-381C-4FB5-A7B0-5027733F4E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C2809E-381C-4FB5-A7B0-5027733F4E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C2809E-381C-4FB5-A7B0-5027733F4E81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {015DF2A5-2548-4F39-B2EC-69DD84CA6C05}
+	EndGlobalSection
+EndGlobal

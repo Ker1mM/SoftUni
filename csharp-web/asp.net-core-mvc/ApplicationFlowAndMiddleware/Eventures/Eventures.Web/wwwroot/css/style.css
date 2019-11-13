@@ -1,0 +1,86 @@
+.bg-eventures {
+    background-color: #AFEEEE;
+}
+
+.text-eventures {
+    color: #AFEEEE;
+}
+
+.bg-eventures {
+    text-align: center
+}
+
+.border-panda {
+    border: 2px solid #202020;
+    border-radius: 7px;
+}
+
+.nav-link-black {
+    color: #000000;
+    font-weight: bold;
+}
+
+.input-form {
+    display: table;
+}
+
+.input-line {
+    display: table-cell;
+    margin-left: 10px;
+}
+
+hr.hr-eventures {
+    color: #AFEEEE;
+    border: 2px solid;
+    border-radius: 2px;
+}
+
+.hr-2 {
+    height: 2px;
+}
+
+.hr-5 {
+    height: 2px;
+    color: grey;
+    background: grey;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+hr.hr-black {
+    color: #000000;
+    border: 2px solid;
+}
+
+a {
+    text-underline: none;
+}
+
+    a:hover {
+        outline: none;
+        text-decoration: none;
+    }
+
+tr {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+textarea {
+    resize: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    border: 0;
+    width: 98%;
+}
+
+.error {
+    border: solid #AFEEEE;
+    border-radius: 10px;
+    background-color: #AFEEEE;
+}

@@ -1,0 +1,133 @@
+﻿@model IndexViewModel
+@inject SignInManager<Player> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div id="welcome" class="jumbotron my-3">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1>Welcome, @User.Identity.Name!</h1>
+        <hr />
+        <div id="serverstatus" class="container">
+            <h2 class="py-3 text-center">Server status:</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Last registered player:</th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">Registered on</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-primary">
+                                <td>@Model.Player.Name</td>
+                                <td>@Model.Player.RegisteredOn</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" colspan="4">Last attempt by player:</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Player</th>
+                                <th scope="col">Track</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Attempt != null)
+                            {
+                                <tr class="table-primary">
+                                    <td>@Model.Attempt.PlayerUsername</td>
+                                    <td>@Model.Attempt.TrackName</td>
+                                    <td>@Model.Attempt.AttemptedOn</td>
+                                    <td>@Model.Attempt.Time</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" colspan="3">Last part listed in:</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Seller</th>
+                                <th scope="col">Part model</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Ware != null)
+                            {
+                                <tr class="table-primary">
+                                    <td>@Model.Ware.SellerName</td>
+                                    <td>@Model.Ware.Part.Make @Model.Ware.Part.Model</td>
+                                    <td>@Model.Ware.Price</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" colspan="4">Most popular track:</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Distance</th>
+                                <th scope="col">Elevation</th>
+                                <th scope="col">Attempts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Track != null)
+                            {
+                            <tr class="table-primary">
+                                <td>@Model.Track.Name</td>
+                                <td>@Model.Track.Distance</td>
+                                <td>@Model.Track.Elevation</td>
+                                <td>@Model.Track.AttemptCount</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="text-center">
+            <h4>Enjoy your stay!</h4>
+        </div>
+    }
+    else
+    {
+        <h2>Welcome, Rider!</h2>
+        <hr />
+        <p>This is the start of your ride.</p>
+        <p>If you feel ready then wait no more and <a class="text-info" href="/Identity/Account/Register">sign up</a> to ride!</p>
+        <p>Or if you already have an account, <a class="text-info" href="/Identity/Account/Login">sign in</a> and continue your ride!</p>
+        <hr />
+        <h5>Good luck on your path, Rider!</h5>
+    }
+</div>
+

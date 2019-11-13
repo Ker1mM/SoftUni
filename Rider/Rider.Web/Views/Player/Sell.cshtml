@@ -1,0 +1,43 @@
+﻿@model SellPlayerPartModel
+
+@{
+    ViewData["Title"] = string.Format("Sell - {0} {1}", Model.Make, Model.Model);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container background-body m-w-500">
+    <hr class="mt-0" />
+    <div class="container table-responsive-lg">
+        <table class="table table-hover">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th class="th-sm">Make</th>
+                    <th class="th-sm">Model</th>
+                    <th class="th-sm">Base Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary text-center">
+                    <td>@Model.Make</td>
+                    <td>@Model.Model</td>
+                    <td>@Model.BasePrice</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-6 text-center">
+
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="PartId" name="PartId" value="@Model.PartId" />
+                <button type="submit" class="btn btn-primary">Sell</button>
+            </form>
+        </div>
+    </div>
+</div>

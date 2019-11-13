@@ -1,0 +1,146 @@
+﻿@model TrackDetailsModel
+
+@{
+    ViewData["Title"] = "Track";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int counter = 1;
+}
+
+<div class="container background-body">
+
+    <div class="container-fluid text-center pt-2">
+        <h1>Race track - @Model.Track.Name</h1>
+    </div>
+    <div class="container text-center">
+        <hr />
+        <form method="post" id="RaceForm" class="form-inline justify-content-md-end justify-content-center">
+            <h5 class="mb-sm-0 mr-3">Select bike:</h5>
+            <select class="custom-select browser-default custom-select-sm mr-3" asp-for="RaceBikeId">
+                @foreach (var bike in Model.UserBikes)
+                {
+                    <option value="@bike.Id">@bike.Nickname</option>
+                }
+            </select>
+            <input type="hidden" asp-for="RaceTrackId" name="RaceTrackId" value="@Model.Track.Id" />
+            <button type="submit" class="btn btn-sm btn-info ml-0 mt-2 mt-sm-1">Race</button>
+        </form>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-4 container">
+            <div class="table-responsive-lg">
+                <table class="table table-dark table-sm">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="solid-bg" colspan="2"><h5>Track Details</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>@Model.Track.Name</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Type</th>
+                            <td>@Model.Track.Type.ToString()</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Elevation</th>
+                            <td>@Model.Track.Elevation</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Distance</th>
+                            <td>@Model.Track.Distance</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>@Model.Track.Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-8 container">
+            <div class="table-responsive-lg">
+                <table class="table table-dark table-sm">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="solid-bg" colspan="5"><h5>Bikes</h5></th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Nickname</th>
+                            <th scope="col">Suspension Rating</th>
+                            <th scope="col">Speed Rating</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var bike in Model.UserBikes)
+                        {
+                            <tr>
+                                <td>@bike.Nickname</td>
+                                <td>@bike.SuspensionRating</td>
+                                <td>@bike.SpeedRating</td>
+                                <td>@bike.Weight</td>
+                                <td>@bike.Type</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr id="raceDivide" />
+    <div class="table-responsive-lg">
+        <table id="attempts" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr class="text-center">
+                    <th class="solid-bg" colspan="4">Attempts</th>
+                </tr>
+                <tr>
+                    <th class="th-sm">
+                        #
+                    </th>
+                    <th class="th-sm">
+                        Time
+                    </th>
+                    <th class="th-sm">
+                        Player
+                    </th>
+                    <th class="th-sm">
+                        Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var attempt in Model.Attempts)
+                {
+                    <tr>
+                        <td>@(counter++)</td>
+                        <td>@attempt.Time</td>
+                        <td>@attempt.PlayerUsername</td>
+                        <td>@attempt.AttemptedOn</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    <th>
+                        Player
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+

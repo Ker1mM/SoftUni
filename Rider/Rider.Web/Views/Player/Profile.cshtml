@@ -1,0 +1,56 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile - " + User.Identity.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container background-body" id="profile-body">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Edit">
+                <i class="fas fa-user-edit fa-2x">
+                    <span class="ml-1 hide-300">Edit</span>
+                </i>
+            </a>
+        </li>
+        <li class="nav-item ml-sm-auto">
+            <a class="nav-link" title="Logout" asp-area="Identity" asp-page="/Account/Logout">
+                <i class="fas fa-sign-out-alt fa-2x">
+                    <span class="ml-1 hide-300">Logout</span>
+                </i>
+            </a>
+        </li>
+    </ul>
+    <hr class="mt-0" />
+    <div class="container text-left">
+        <img id="avatar" src="~/img/avatar-placeholder.png" alt="avatar" />
+        <table class="table table-borderless table-responsive-sm">
+            <tbody>
+                <tr>
+                    <th scope="col">Username:</th>
+                    <td title="@Model.Username">@Model.Username</td>
+                </tr>
+                <tr>
+                    <th scope="col">Email:</th>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th scope="col">Role:</th>
+                    <td>@Model.Role</td>
+                </tr>
+                <tr>
+                    <th scope="col">Active since:</th>
+                    <td>@Model.CreatedOn.ToString("dd.MM.yyyy")</td>
+                </tr>
+                <tr>
+                    <th scope="col">Balance:</th>
+                    <td><strong>@Model.Balance</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

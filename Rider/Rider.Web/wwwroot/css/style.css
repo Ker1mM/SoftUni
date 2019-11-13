@@ -1,0 +1,286 @@
+﻿
+
+.img-logo {
+    height: 40px;
+    width: 140px;
+}
+
+
+.rider-red {
+    color: rgb(219, 35, 42);
+}
+
+.bg-rider {
+    background-color: rgb(219, 35, 42);
+}
+
+main {
+    height: 100%;
+}
+
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+    display: none;
+}
+
+.lock:hover .icon-lock {
+    display: inline;
+}
+
+.fa-cog-grey {
+    color: rgb(148,149,169);
+}
+
+.fa-cog-snow {
+    color: snow;
+}
+
+[data-toggle="collapse"] .fa:before {
+    content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+    content: "\f13a";
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.pt-100 {
+    padding-top: 100px;
+}
+
+.border-0 {
+    border: 0;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.icon-bar {
+    width: 22px;
+    height: 2px;
+    background-color: #B6B6B6;
+    display: block;
+    transition: all 0.2s;
+    margin-top: 4px
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent !important;
+}
+
+    .navbar-toggler .top-bar {
+        transform: rotate(45deg);
+        transform-origin: 10% 10%;
+    }
+
+    .navbar-toggler .middle-bar {
+        opacity: 0;
+    }
+
+    .navbar-toggler .bottom-bar {
+        transform: rotate(-45deg);
+        transform-origin: 10% 90%;
+    }
+
+    .navbar-toggler.collapsed .top-bar {
+        transform: rotate(0);
+    }
+
+    .navbar-toggler.collapsed .middle-bar {
+        opacity: 1;
+    }
+
+    .navbar-toggler.collapsed .bottom-bar {
+        transform: rotate(0);
+    }
+
+
+.account-height {
+    height: 100%;
+    width: 100%;
+}
+
+.login-page {
+    background-color: aliceblue;
+    margin: auto;
+    width: 600px;
+    border-radius: 20px;
+    display: block;
+    opacity: 0.9;
+}
+
+.btn-hover {
+    font-weight: normal;
+    color: #333333;
+    cursor: pointer;
+    background-color: inherit;
+    border-color: transparent;
+}
+
+#footer {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#main {
+    overflow: auto;
+    margin-top: 5px;
+}
+
+#body {
+    background: url(../img/bg-1.jpg) top;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+#navbar {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+input.align-center {
+    text-align: center;
+}
+
+.validation-summary-errors ul {
+    list-style-type: none;
+}
+
+#welcome {
+    opacity: 0.9;
+    border-radius: 5px;
+    background-color: snow;
+}
+
+div.background-body {
+    background: rgba(240, 240, 240, 0.95);
+    margin-bottom: 8px;
+    margin-top: 3px;
+}
+
+.solid-bg{
+    background-color: darkslategrey;
+    color: snow;
+}
+
+hr.footer {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: 0;
+    border-top: 1px solid #B6B6B6;
+}
+
+.text-yellow {
+    color: rgb(207, 187, 62);
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+a {
+    color: inherit;
+}
+
+    a:hover {
+        color: inherit;
+    }
+
+.link {
+    color: blue;
+}
+
+
+#serverstatus {
+    background: rgba(133, 122, 5, 0.8);
+}
+
+
+#inner {
+    margin: 0 auto;
+}
+
+.decoration-none {
+    text-decoration: none;
+}
+
+#profile-body {
+    max-width: 500px;
+}
+
+#avatar {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.dropdown-menu > a:hover {
+    background-color: rgb(250, 200, 200);
+    background-image: none;
+}
+
+.dropdown-menu > a {
+    color: white;
+}
+
+.dropdown-menu {
+    background-color: rgb(219, 35, 42);
+    border: none;
+    border-radius: 0px;
+}
+
+.m-w-500 {
+    max-width: 500px;
+}
+
+#equip-parts {
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#equipped-parts {
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+
+
+    #loginBox {
+        width: 100%;
+    }
+
+    #registerBox {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .hide-l-12 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+
+    #brandLogo {
+        display: none;
+    }
+
+    #avatar {
+        max-height: 50%;
+        max-width: 50%;
+    }
+
+    .hide-300 {
+        display: none;
+    }
+}

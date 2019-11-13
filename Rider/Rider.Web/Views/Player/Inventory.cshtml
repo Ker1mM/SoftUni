@@ -1,0 +1,119 @@
+﻿@model InventoryViewModel
+
+@{
+    ViewData["Title"] = "Inventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container background-body">
+    <div class="container pt-2">
+        <h1>Inventory</h1>
+    </div>
+    <hr class="mt-0" />
+    <div class="table-responsive-lg">
+        <h3 class="text-danger">@TempData["Error"]</h3>
+        <table id="inventory" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Make
+                    </th>
+                    <th class="th-sm">
+                        Model
+                    </th>
+                    <th class="th-sm">
+                        Type
+                    </th>
+                    <th class="th-sm">
+                        Weight
+                    </th>
+                    <th class="th-sm">
+                        Speed Rating
+                    </th>
+                    <th class="th-sm">
+                        Suspension Rating
+                    </th>
+                    <th class="th-sm">
+                        Status
+                    </th>
+                    <th class="th-sm text-center">
+                        Sell
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var part in Model.AvailableParts)
+                {
+                    <tr>
+                        <td>@part.Part.Make</td>
+                        <td>@part.Part.Model</td>
+                        <td>@part.Part.Type</td>
+                        <td>@part.Part.Weight</td>
+                        <td>@part.Part.SpeedRating</td>
+                        <td>@part.Part.SuspensionRating</td>
+                        <td>Available</td>
+                        <td class="text-center"><a title="Sell" asp-controller="Player" asp-action="Sell" asp-route-p="@part.Part.Id"><i class="fas fa-coins text-success"></i></a></td>
+                    </tr>
+                }
+
+                @foreach (var part in Model.PartsForSale)
+                {
+                    <tr>
+                        <td>@part.Part.Make</td>
+                        <td>@part.Part.Model</td>
+                        <td>@part.Part.Type</td>
+                        <td>@part.Part.Weight</td>
+                        <td>@part.Part.SpeedRating</td>
+                        <td>@part.Part.SuspensionRating</td>
+                        <td>For Sale</td>
+                        <td class="text-center"><i title="Unavailable" class="fas fa-coins text-muted"></i></td>
+                    </tr>
+                }
+
+                @foreach (var part in Model.UsedParts)
+                {
+                    <tr>
+                        <td>@part.Part.Make</td>
+                        <td>@part.Part.Model</td>
+                        <td>@part.Part.Type</td>
+                        <td>@part.Part.Weight</td>
+                        <td>@part.Part.SpeedRating</td>
+                        <td>@part.Part.SuspensionRating</td>
+                        <td>In Use</td>
+                        <td class="text-center"><i title="Unavailable" class="fas fa-coins"></i></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th class="th-sm">
+                        Make
+                    </th>
+                    <th class="th-sm">
+                        Model
+                    </th>
+                    <th class="th-sm">
+                        Type
+                    </th>
+                    <th class="th-sm">
+                        Weight
+                    </th>
+                    <th class="th-sm">
+                        Speed Rating
+                    </th>
+                    <th class="th-sm">
+                        Suspension Rating
+                    </th>
+                    <th class="th-sm">
+                        Status
+                    </th>
+                    <th class="th-sm text-center">
+                        Sell
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+﻿@model List<TrackViewModel>
+
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container background-body">
+    <div class="row pt-2">
+        <div class="col">
+            <h2 class="ml-1">Tracks</h2>
+        </div>
+        <div class="col text-sm-right">
+            <a class="btn btn-success btn-sm text-right" asp-area="Cved" asp-controller="Tracks" asp-action="Create">Create</a>
+        </div>
+    </div>
+    <hr class="mt-1" />
+    <div class="table-responsive text-nowrap">
+        <h3 class="text-danger text-center">
+            @TempData["Error"]
+        </h3>
+        <table id="partsTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Name
+
+                    </th>
+                    <th class="th-sm">
+                        Type
+
+                    </th>
+                    <th class="th-sm">
+                        Distance
+
+                    </th>
+                    <th class="th-sm">
+                        Elevation
+
+                    </th>
+                    <th class="th-sm">
+                        Options
+
+                    </th>
+                    <th class="th-sm">
+                        Description
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var track in Model)
+                {
+                    <tr>
+                        <td>@track.Name</td>
+                        <td>@track.Type</td>
+                        <td>@track.Distance</td>
+                        <td>@track.Elevation</td>
+                        <td>
+                            <a class="btn btn-info btn-sm m-0" asp-area="Cved" asp-controller="Tracks" asp-action="Edit" asp-route-trackId="@track.Id">Edit</a>
+                            <a class="btn btn-info btn-sm m-0" asp-area="Cved" asp-controller="Tracks" asp-action="Archive" asp-route-t="@track.Id">Archive</a>
+                        </td>
+                        <td class="text-wrap">
+                            @track.Description
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th class="th-sm">
+                        Name
+
+                    </th>
+                    <th class="th-sm">
+                        Type
+
+                    </th>
+                    <th class="th-sm">
+                        Distance
+
+                    </th>
+                    <th class="th-sm">
+                        Elevation
+
+                    </th>
+                    <th class="th-sm">
+                        Description
+
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

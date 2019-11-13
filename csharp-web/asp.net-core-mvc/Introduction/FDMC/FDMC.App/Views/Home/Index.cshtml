@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<FDMC.ViewModels.Cats.AllCatsViewModel>
+
+<div class="container-fluid">
+    <div class="container float-left">
+        <h1>Fluffy Duffy Munchkin Cats</h1>
+        <ul>
+            @foreach (var cat in Model)
+            {
+                <li><a href="/cats/@(cat.Id)" />@cat.Name</li>
+            }
+        </ul>
+        <div class="button-holder">
+            <a href="/cats/add" class="btn btn-dark">Add Cat</a>
+        </div>
+    </div>
+</div>

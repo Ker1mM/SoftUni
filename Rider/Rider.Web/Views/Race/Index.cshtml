@@ -1,0 +1,84 @@
+﻿@model RaceIndexViewModel
+
+
+@{
+    ViewData["Title"] = "Race Center";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container background-body">
+    <div class="pt-2">
+        <h1>Race Center</h1>
+    </div>
+    <hr class="mt-0" />
+    <h3 class="text-danger">@TempData["Error"]</h3>
+    <div class="table-responsive-lg">
+        <table id="raceCenter" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Name
+                    </th>
+                    <th class="th-sm">
+                        Description
+                    </th>
+                    <th class="th-sm">
+                        Distance
+                    </th>
+                    <th class="th-sm">
+                        Elevation
+                    </th>
+                    <th class="th-sm">
+                        Type
+                    </th>
+                    <th class="th-sm">
+                        Total Attempts
+                    </th>
+                    <th class="th-sm text-center">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var track in Model.Tracks)
+                {
+                    <tr>
+                        <td>@track.Name</td>
+                        <td>@track.Description</td>
+                        <td>@track.Distance</td>
+                        <td>@track.Elevation</td>
+                        <td>@track.Type</td>
+                        <td>@track.AttemptCount</td>
+                        <td class="text-center"><a title="Details" class="btn btn-outline-cyan btn-sm m-0" asp-controller="Race" asp-action="Track" asp-route-t="@track.Id">Details</a></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Distance
+                    </th>
+                    <th>
+                        Elevation
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Total Attempts
+                    </th>
+                    <th class="text-center">
+                        Actions
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model PlayerEditModel
+
+@{
+    ViewData["Title"] = string.Format("Edit - {0}", Model.Username);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container background-body">
+    <div class="col-6 mx-auto">
+        <h1 class="pt-2">Edit</h1>
+        <hr class="mt-0" />
+
+        <div asp-validation-summary="All" class="text-danger text-left"></div>
+        <table class="table table-borderless">
+            <tr>
+                <td>Username:</td>
+                <th scope="row">@Model.Username</th>
+            </tr>
+            <tr>
+                <td>Current role:</td>
+                <th scope="row">@Model.Role</th>
+            </tr>
+            <tr>
+                <td><label asp-for="NewRole">New role</label></td>
+                <td>
+                    <form method="post">
+                        <div class="form-group">
+                            <select asp-for="NewRole" class="form-control" id="exampleFormControlSelect1">
+                                @foreach (var userRole in Model.AllRoles)
+                                {
+                                    if (Model.Role.ToLower() == userRole.ToLower())
+                                    {
+                                        <option selected="selected">@userRole</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@userRole</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="NewRole" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary text-center">Save</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

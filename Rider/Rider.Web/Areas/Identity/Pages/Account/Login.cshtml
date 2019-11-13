@@ -1,0 +1,49 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="" id="accountPage">
+    <div class="container pb-5"></div>
+    <div class="container-fluid login-page my-auto" id="loginBox">
+        <div class="py-2 text-center border-bottom">
+            <a asp-area="Identity" asp-page="Login" class="btn btn-primary btn-lg disabled">Log In</a>
+            <a asp-area="Identity" asp-page="Register" class="btn btn-primary btn-lg">Register</a>
+        </div>
+        <section class="pt-3 text-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <form id="account" method="post">
+                <div class="form-group">
+                    <label asp-for="Input.Username"></label>
+                    <input id="input-center" asp-for="Input.Username" class="form-control" />
+                    <span asp-validation-for="Input.Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input id="input-center" asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group container">
+                    <div class="row">
+                        <div class="col-xs-6 m-auto">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-center justify-content-between py-2">
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
